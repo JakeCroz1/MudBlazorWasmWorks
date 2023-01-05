@@ -1,7 +1,199 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+<MudContainer Class=" mud-theme-primary" MaxWidth="MaxWidth.False" Style="padding-bottom:20em;padding-top:10em ">
 
-<MudText Typo="Typo.h3" GutterBottom="true">Hello, world!</MudText>
-<MudText Class="mb-8">Welcome to your new app, powered by MudBlazor!</MudText>
-<MudAlert Severity="Severity.Normal">You can find documentation and examples on our website here: <MudLink Href="https://mudblazor.com" Typo="Typo.body2" Color="Color.Inherit"><b>www.mudblazor.com</b></MudLink></MudAlert>
+    <MudGrid>
+
+        @*
+        <MudItem xs="12" sm="6" md="6" lg="6">
+        <MudGrid>
+        <MudItem xs="12">
+        <MudPaper Elevation="2" Class="pa-4 d-flex align-center justify-center mud-width-full" Style="height: 200px;">
+        <MudText Align="Align.Left" Typo="Typo.h2">I design Web <MudElement ></MudElement> & User Interfaces</MudText>
+        </MudPaper>
+        </MudItem>
+        <MudItem xs="12">
+        <MudPaper Elevation="2" Class="pa-4" Style="height: 200px;"><MudText Align="Align.Center"><b>Center</b> Lorem ipsum dolor sit amet.</MudText></MudPaper>
+        </MudItem>
+        </MudGrid>
+        </MudItem>
+        *@
+        <MudItem xs="12" sm="6" md="6" lg="6" Class="">
+
+            <MudPaper Elevation="2" Class="pa-4 p-flex align-center justify-center mud-width-full mud-theme-primary " Style="height: 100%; background-image: repeating-linear-gradient(36deg, rgba(255,255,255, 0.1), rgba(255,255,255, 0.1) 1px, transparent 0px, transparent 2px); ">
+                <MudText Typo="Typo.h1" Align="Align.Center" GutterBottom="true">👋 Hi,</MudText>
+                <MudText Typo="Typo.h4" Align="Align.Center">If you have problem on the web, <MudElement HtmlTag="span" Style="font-weight:500; background-image: linear-gradient(4deg,#c591f8,#00d5d8); -webkit-text-fill-color: transparent; -webkit-background-clip: text;">Crosby Web</MudElement> is here to help!</MudText>
+                <MudGrid>
+                    <MudItem xs="12" sm="12" md="12" lg="12">
+                        <MudChip Icon="@Icons.Material.Filled.Web" Color="Color.Tertiary">Websites</MudChip>
+                        <MudChip Icon="@Icons.Custom.Brands.Google" Color="Color.Tertiary">oogle Business</MudChip>
+                        <MudChip Icon="@Icons.Custom.Brands.MicrosoftAzure" Color="Color.Tertiary">Azure Cloud</MudChip>
+                        <MudChip Icon="@Icons.Custom.Brands.Microsoft" Color="Color.Tertiary">SharePoint</MudChip>
+                        <MudChip Icon="@Icons.Material.Filled.Code" Color="Color.Tertiary">C#</MudChip>
+                        <MudChip Icon="@Icons.Material.Filled.Api" Color="Color.Tertiary">API</MudChip>
+                        <MudChip Icon="@Icons.Material.Filled.BugReport" Color="Color.Tertiary">Debug</MudChip>
+                        <MudChip Icon="@Icons.Material.Filled.Search" Color="Color.Tertiary">SEO</MudChip>
+                    </MudItem>
+                </MudGrid>
+
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="6" lg="6" Class="">
+            <MudPaper Elevation="0" Class="pa-4 d-flex align-center justify-center mud-width-full mud-theme-primary " Style="height: 100%; ">
+                <MudImage Fluid="true" Src="Media/Images/jakecrosbyclipped.png" Alt="Owner" Elevation="25" Class="rounded-lg" Style=" background-image: repeating-linear-gradient(36deg, rgba(255,255,255, 0.1), rgba(255,255,255, 0.1) 1px, transparent 0px, transparent 2px);" />
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+
+</MudContainer>
+<MudContainer Class="" Style="@($"color:{Colors.DeepPurple.Darken3}; background:{Colors.DeepPurple.Lighten5};")" MaxWidth="MaxWidth.False">
+
+    <MudText Class="half-color" Typo="Typo.h1" Align="Align.Center" GutterBottom="true" Style="color: #ede7f6; font-weight:500; text-shadow: 2px 2px 6px #594ae2 !important;">Check out my journey</MudText>
+    @*
+    <MudText Typo="Typo.h2" Align="Align.Center" GutterBottom="true" Style="font-weight:500; background-image: linear-gradient(4deg,#c591f8,#00d5d8); -webkit-text-fill-color: transparent; -webkit-background-clip: text;">Check out my journey</MudText>
+    *@
+    <MudText Typo="Typo.h5" Align=" Align.Center" Style="color:rgb(103, 116, 142);">My orgin story started from a code bootcamp</MudText>
+
+    <MudTimeline>
+        <MudTimelineItem Color="Color.Info" Size="Size.Small">
+            <ItemOpposite>
+                <MudText Color="Color.Info" Typo="Typo.h5">~2016-2017</MudText>
+            </ItemOpposite>
+            <ItemContent>
+                <MudText Color="Color.Info" Typo="Typo.h6" GutterBottom="true">Code Bootcamp at Gateway Technical College</MudText>
+                <MudText>The IT- Junior SharePoint Developer diploma trains students in the development and maintenance of business web sites as well as designing and developing collaboration applications with Microsoft SharePoint. Topics will include web site design and development and basic knowledge of SQL and back-end databases. This concentration includes a focus on the Microsoft Certified SharePoint Solution Developer (MCSD) Certification. Typical entry-level positions for this training opportunity include junior web developer, junior web programmer, and Junior SharePoint Developer. </MudText>
+            </ItemContent>
+        </MudTimelineItem>
+        <MudTimelineItem Color="Color.Success" Size="Size.Small">
+            <ItemOpposite>
+                <MudText Color="Color.Success" Typo="Typo.h5">~2018-2019</MudText>
+            </ItemOpposite>
+            <ItemContent>
+                <MudText Color="Color.Success" Typo="Typo.h6" GutterBottom="true">Data Specialists, Inc</MudText>
+                <MudText>Merging legacy software with its most recent version. Debugging code. Implementing Continuous Integration (CI) with production software. Utilizing repositories for the sake of version control. Technologies used: Cruise Control, MCLv3, MCLv4, Eclipse, CaPlex r6.1, SQL Server Express 2016, and SQL Server Management Studio 2017. </MudText>
+            </ItemContent>
+        </MudTimelineItem>
+        <MudTimelineItem Color="Color.Error" Size="Size.Small">
+            <ItemOpposite>
+                <MudText Color="Color.Error" Typo="Typo.h5">~2019-Present</MudText>
+            </ItemOpposite>
+            <ItemContent>
+                <MudText Color="Color.Error" Typo="Typo.h6" GutterBottom="true">Freelance Web Developer</MudText>
+                <MudText>Projects vary but most involve the following Tech Stack: Asp.Net MVC 5, MS Server 17, T-SQL, Azure Storage, JS (ECMAScript 2015), jQuery 3.3.1, CSS3, Bootstrap 3/4, and AJAX.</MudText>
+            </ItemContent>
+        </MudTimelineItem>
+    </MudTimeline>
+
+    <MudContainer Class="mt-16 px-8" MaxWidth="MaxWidth.False">
+        <MudGrid>
+            <MudItem xs="12" sm="12" md="12" lg="12">
+                <MudPaper Elevation="2" Class="pa-4 d-flex justify-center mud-width-full " Style="">
+                </MudPaper>
+            </MudItem>
+            <MudItem xs="12" sm="6" md="6" lg="6">
+                <MudPaper Elevation="2" Class="pa-4 d-flex justify-center mud-width-full " Style="height: 800px;"><MudImage ObjectFit="ObjectFit.Cover" Fluid="true" Src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/laptop.jpg" Alt="Swedish Farm House" Class="rounded-lg" Style="height:300px;" /></MudPaper>
+            </MudItem>
+            <MudItem xs="12" sm="6" md="6" lg="6">
+                <MudPaper Elevation="2" Class="pa-4 d-flex justify-center mud-width-full " Style="height: 800px;"><MudImage ObjectFit="ObjectFit.Cover" Fluid="true" Src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/tasks.jpg" Alt="Swedish Farm House" Class="rounded-lg" Style="height:300px" /></MudPaper>
+            </MudItem>
+
+        </MudGrid>
+    </MudContainer>
+
+</MudContainer>
+<MudContainer Class="" Style="@($"color:{Colors.DeepPurple.Darken3}; background:{Colors.DeepPurple.Lighten5};")" MaxWidth="MaxWidth.False">
+    <MudText Typo="Typo.h3" Align="Align.Center" GutterBottom="true">Pricing</MudText>
+    <MudText Align="Align.Center">Some long pricing text should go here maybe? who knows what text you would want here, i guess i cant fill it in for you.</MudText>
+    <MudGrid Class="mt-16 ">
+        <MudItem xs="12" sm="6" md="4">
+            <MudCard Elevation="25" Class="rounded-lg pb-4 mud-theme-primary">
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.h5" Align="Align.Center">Beginner</MudText>
+                    </CardHeaderContent>
+                </MudCardHeader>
+                <MudCardContent>
+                    <div class="d-flex justify-center">
+                        <MudText Typo="Typo.h3">$5</MudText>
+                        <MudText Typo="Typo.h5" Class="ml-1 mt-5" Color="Color.Secondary">/Monthly</MudText>
+                    </div>
+                    <MudList Class="mx-auto mt-4" Style="width:300px;">
+                        <MudListItem Icon="@Icons.Material.Filled.LiveHelp">
+                            Unlimited something
+                        </MudListItem>
+                        <MudListItem Icon="@Icons.Material.Filled.LiveHelp">
+                            10 something
+                        </MudListItem>
+                        <MudListItem Icon="@Icons.Material.Filled.LiveHelp">
+                            No something
+                        </MudListItem>
+                    </MudList>
+                </MudCardContent>
+                <MudCardActions Class="d-flex justify-center">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" Style="width:50%;">Start Now</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="4">
+            <MudCard Elevation="25" Class="rounded-lg pb-4 mud-theme-primary">
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.h5" Align="Align.Center">Starter</MudText>
+                    </CardHeaderContent>
+                </MudCardHeader>
+                <MudCardContent>
+                    <div class="d-flex justify-center">
+                        <MudText Typo="Typo.h3">$10</MudText>
+                        <MudText Typo="Typo.h5" Class="ml-1 mt-5" Color="Color.Secondary">/Monthly</MudText>
+                    </div>
+                    <MudList Class="mx-auto mt-4" Style="width:300px;">
+                        <MudListItem Icon="@Icons.Material.Filled.LiveHelp">
+                            Unlimited something
+                        </MudListItem>
+                        <MudListItem Icon="@Icons.Material.Filled.LiveHelp">
+                            10 something
+                        </MudListItem>
+                        <MudListItem Icon="@Icons.Material.Filled.LiveHelp">
+                            No something
+                        </MudListItem>
+                    </MudList>
+                </MudCardContent>
+                <MudCardActions Class="d-flex justify-center">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" Style="width:50%;">Start Now</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="12" md="4">
+            <MudCard Elevation="25" Class="rounded-lg pb-4 mud-theme-primary">
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.h5" Align="Align.Center">Professional</MudText>
+                    </CardHeaderContent>
+                </MudCardHeader>
+                <MudCardContent>
+                    <div class="d-flex justify-center">
+                        <MudText Typo="Typo.h3">$15</MudText>
+                        <MudText Typo="Typo.h5" Class="ml-1 mt-5" Color="Color.Secondary">/Monthly</MudText>
+                    </div>
+                    <MudList Class="mx-auto mt-4" Style="width:300px;">
+                        <MudListItem Icon="@Icons.Material.Filled.LiveHelp">
+                            Unlimited something
+                        </MudListItem>
+                        <MudListItem Icon="@Icons.Material.Filled.LiveHelp">
+                            10 something
+                        </MudListItem>
+                        <MudListItem Icon="@Icons.Material.Filled.LiveHelp">
+                            No something
+                        </MudListItem>
+                    </MudList>
+                </MudCardContent>
+                <MudCardActions Class="d-flex justify-center">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" Style="width:50%;">Start Now</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+@code {
+
+}
