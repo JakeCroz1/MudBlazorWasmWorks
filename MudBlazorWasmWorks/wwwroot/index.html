@@ -86,8 +86,8 @@
             }
 
             // any time there is a sudden increase in peak energy, call that a beat
-            if (peak > lastPeak * (1 + threshold)) {
-                // print(`tick ${++i}`);
+            if (peak > lastPeak * (1 + threshold)) {               
+                window.ReactNativeWebView.postMessage('callReactNativeFunction');
                 console.log("beat");
                 beat = millis();
             }
