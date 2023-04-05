@@ -21,6 +21,7 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
+    <button onclick="startMic()" style="background-color:aqua; width:100%; height: 50px; ">click</button>
     <script>
         let inputz;
         let analyzer;
@@ -31,26 +32,32 @@
 
             // Create an Audio input
             inputz = new p5.AudioIn();
+            
+            //inputz.start();
+        }
+
+        function startMic() {
+            getAudioContext().resume();
 
             inputz.start();
         }
 
         function draw() {
             // Get the overall volume (between 0 and 1.0)
-            let volume = inputz.getLevel();
+            let volumez = inputz.getLevel();
 
             // If the volume > 0.1,  a rect is drawn at a random location.
             // The louder the volume, the larger the rectangle.
-            let threshold = 0.1;
-            if (volume > threshold) {
+            let thresholdz = 0.1;
+            if (volumez > thresholdz) {
                 stroke(0);
                 fill(0, 100);
-                rect(random(40, width), random(height), volume * 50, volume * 50);
+                rect(random(40, width), random(height), volumez * 50, volumez * 50);
             }
 
             // Graph the overall potential volume, w/ a line at the threshold
-            let y = map(volume, 0, 1, height, 0);
-            let ythreshold = map(threshold, 0, 1, height, 0);
+            let y = map(volumez, 0, 1, height, 0);
+            let ythreshold = map(thresholdz, 0, 1, height, 0);
 
             noStroke();
             fill(175);
