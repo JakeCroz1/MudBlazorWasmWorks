@@ -22,24 +22,44 @@
         <a class="dismiss">🗙</a>
     </div>
     <script>
-        let mic;
+        let inputz;
+        let analyzer;
 
         function setup() {
-            let cnv = createCanvas(100, 100);
-            cnv.touchStarted(userStartAudio);
-            textAlign(CENTER);
-            mic = new p5.AudioIn();
-            mic.start();
+            createCanvas(710, 200);
+            background(255);
+
+            // Create an Audio input
+            inputz = new p5.AudioIn();
+
+            inputz.start();
         }
 
         function draw() {
-            background(0);
-            fill(255);
-            text('tap to start', width / 2, 20);
+            // Get the overall volume (between 0 and 1.0)
+            let volume = inputz.getLevel();
 
-            micLevel = mic.getLevel();
-            let y = height - micLevel * height;
-            ellipse(width / 2, y, 10, 10);
+            // If the volume > 0.1,  a rect is drawn at a random location.
+            // The louder the volume, the larger the rectangle.
+            let threshold = 0.1;
+            if (volume > threshold) {
+                stroke(0);
+                fill(0, 100);
+                rect(random(40, width), random(height), volume * 50, volume * 50);
+            }
+
+            // Graph the overall potential volume, w/ a line at the threshold
+            let y = map(volume, 0, 1, height, 0);
+            let ythreshold = map(threshold, 0, 1, height, 0);
+
+            noStroke();
+            fill(175);
+            rect(0, 0, 20, height);
+            // Then draw a rectangle on the graph, sized according to volume
+            fill(0);
+            rect(0, y, 20, y);
+            stroke(0);
+            line(0, ythreshold, 19, ythreshold);
         }
         /*
         const avgWindow = 20;
