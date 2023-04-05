@@ -24,86 +24,22 @@
     </div>
     <button onclick="startMic()" style="background-color:aqua; width:100%; height: 50px; ">click</button>
     <script>
-        var mic, fft;
-
-        function setup() {
-            createCanvas(512, 400);
-            noStroke();
-            fill(0, 255, 255);
-            userStartAudio();
-            mic = new p5.AudioIn();
-            //getAudioContext().resume();
-            mic.start();
-            fft = new p5.FFT();
-            fft.setInput(mic);
-        }
-
-        function draw() {
-            background(200);
-            var spectrum = fft.analyze();
-
-            beginShape();
-            vertex(0, height);
-            for (i = 0; i < spectrum.length; i++) {
-                vertex(i, map(spectrum[i], 0, 255, height, 0));
-            }
-            endShape();
-
-        }
-        /*
-        var inputz;
-        var analyzer;
-        var fft;
-        function setup() {
-            createCanvas(512, 400);
-            noStroke();
-            fill(0, 255, 255);
-
-            // Create an Audio input
-            inputz = new p5.AudioIn();
-            
-            //inputz.start();
-        }
-
-        function startMic() {
-            getAudioContext().resume();
-
-            inputz.start();
-            fft = new p5.FFT();
-            fft.setInput(inputz);
-        }
-
-        function draw() {
-            background(200);
-            var spectrum = fft.analyze();
-
-            beginShape();
-            vertex(0, height);
-            for (i = 0; i < spectrum.length; i++) {
-                vertex(i, map(spectrum[i], 0, 255, height, 0));
-            }
-            endShape();
-        }*/
-        /*
         const avgWindow = 20;
-        const threshold = 0.12;
-
-        let song;
+        const threshold = 0.05;
         let fft;
         let beat;
         let lastPeak;
-
-        function preload() {
-            song = loadSound('https://beststorageever2020.blob.core.windows.net/video4/TapTest.mp3');
-        }
+        let mic;
 
         function setup() {
-            let cnv = createCanvas(400, 400);
-            cnv.mouseClicked(togglePlay);
+            createCanvas(400, 400);
+            userStartAudio();
+            mic = new p5.AudioIn();
+            mic.start();
+            // p5.PeakDetect requires a p5.FFT
             fft = new p5.FFT();
-
+            fft.setInput(mic);
             beat = millis();
-            //song.loop();
         }
 
         function draw() {
@@ -133,7 +69,7 @@
                     //left + map(i, 0, spectrum.length, 0, w),
                     // Distribute the spectrum values on a logarithmic scale
                     // We do this because as you go higher in the spectrum
-                    // the same perceptible difference in tone requires a
+                    // the same perceptible difference in tone requires a 
                     // much larger chang in frequency.
                     left + map(log(i), 0, log(spectrum.length), 0, w),
                     // Spectrum values range from 0 to 255
@@ -151,8 +87,7 @@
 
             // any time there is a sudden increase in peak energy, call that a beat
             if (peak > lastPeak * (1 + threshold)) {
-                window.ReactNativeWebView.postMessage('callReactNativeFunction');
-
+                // print(`tick ${++i}`);
                 console.log("beat");
                 beat = millis();
             }
@@ -174,14 +109,32 @@
             let cx = map(log(mean_freq_index), 0, log(spectrum.length), 0, width);
             line(cx, 0, cx, h);
         }
-        function togglePlay() {
-            if (song.isPlaying()) {
-                song.pause();
-            } else {
-                song.loop();
-                //amplitude = new p5.Amplitude();
-                //amplitude.setInput(sound);
+        /*
+        var mic, fft;
+
+        function setup() {
+            createCanvas(512, 400);
+            noStroke();
+            fill(0, 255, 255);
+            userStartAudio();
+            mic = new p5.AudioIn();
+            //getAudioContext().resume();
+            mic.start();
+            fft = new p5.FFT();
+            fft.setInput(mic);
+        }
+
+        function draw() {
+            background(200);
+            var spectrum = fft.analyze();
+
+            beginShape();
+            vertex(0, height);
+            for (i = 0; i < spectrum.length; i++) {
+                vertex(i, map(spectrum[i], 0, 255, height, 0));
             }
+            endShape();
+
         }
         */
     </script>
