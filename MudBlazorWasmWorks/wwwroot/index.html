@@ -22,6 +22,26 @@
         <a class="dismiss">🗙</a>
     </div>
     <script>
+        let mic;
+
+        function setup() {
+            let cnv = createCanvas(100, 100);
+            cnv.mousePressed(userStartAudio);
+            textAlign(CENTER);
+            mic = new p5.AudioIn();
+            mic.start();
+        }
+
+        function draw() {
+            background(0);
+            fill(255);
+            text('tap to start', width / 2, 20);
+
+            micLevel = mic.getLevel();
+            let y = height - micLevel * height;
+            ellipse(width / 2, y, 10, 10);
+        }
+        /*
         const avgWindow = 20;
         const threshold = 0.12;
 
@@ -89,6 +109,7 @@
             // any time there is a sudden increase in peak energy, call that a beat
             if (peak > lastPeak * (1 + threshold)) {
                 window.ReactNativeWebView.postMessage('callReactNativeFunction');
+
                 console.log("beat");
                 beat = millis();
             }
@@ -119,7 +140,7 @@
                 //amplitude.setInput(sound);
             }
         }
-
+        */
     </script>
     <script src="_framework/blazor.webassembly.js"></script>
     <script src="_content/MudBlazor/MudBlazor.min.js"></script>
