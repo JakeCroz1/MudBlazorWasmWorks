@@ -26,7 +26,7 @@
 
         function setup() {
             let cnv = createCanvas(100, 100);
-            cnv.mousePressed(userStartAudio);
+            cnv.touchStarted(userStartAudio);
             textAlign(CENTER);
             mic = new p5.AudioIn();
             mic.start();
