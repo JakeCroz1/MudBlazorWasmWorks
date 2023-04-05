@@ -24,6 +24,57 @@
     </div>
     <button onclick="startMic()" style="background-color:aqua; width:100%; height: 50px; ">click</button>
     <script>
+        let amplitude; // variable to hold the amplitude values
+        var freqValue;
+        let fft;
+        let mic;
+        /*
+        function preload() {
+          song = loadSound('https://beststorageever2020.blob.core.windows.net/video4/Tones.mp3'); // load the sound file
+        }
+        */
+        function setup() {
+            createCanvas(400, 400); // create a canvas
+            userStartAudio();
+            mic = new p5.AudioIn();
+            amplitude = new p5.Amplitude(0.5);
+            mic.start();
+            // p5.PeakDetect requires a p5.FFT
+            fft = new p5.FFT();
+            fft.setInput(mic);
+            //fft = new p5.FFT();
+            mic.connect(amplitude)
+            // create a new Amplitude object
+            //filter = new p5.LowPass(); // create a new LowPass filter object
+            //song.connect(filter); // connect the sound file to the filter
+
+            //song.play(); // play the sound file
+        }
+
+        function draw() {
+            background(220); // set the background color
+            // get the average value in a frequency range
+            let spectrum = fft.analyze();
+            //freqValue = fft.getEnergy("bass", 40); 
+            let level = amplitude.getLevel(); // get the current level of the amplitude
+            let size = map(level, 0, 1, 10, 200); // map the level to a size for the ellipse
+
+            fill(255, 0, 0); // set the fill color to red
+            ellipse(width / 2, height / 2, size, size); // draw the ellipse in the center of the canvas
+            //for (let i = 0; i< spectrum.length; i++){
+
+
+            //console.log(spectrum[i]);
+
+            //}
+            // detect the beat
+            if (level > 0.2) {
+                // do something when a beat is detected
+                window.ReactNativeWebView.postMessage('callReactNativeFunction');
+                console.log("Beat detected!");
+            }
+        }
+        /*
         const avgWindow = 20;
         const threshold = 0.28;
         let fft;
@@ -108,7 +159,7 @@
             // convert index to x value using a logarithmic x axis
             let cx = map(log(mean_freq_index), 0, log(spectrum.length), 0, width);
             line(cx, 0, cx, h);
-        }
+        }*/
         /*
         var mic, fft;
 
