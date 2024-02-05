@@ -24,15 +24,41 @@
     </div>
     <button onclick="startMic()" style="background-color:aqua; width:100%; height: 50px; ">click</button>
     <script>
-        //let amplitude; // variable to hold the amplitude values
+
+        let song;
+
+        function preload() {
+            song = loadSound('https://prod-54-161-48-230.wostreaming.net/audacy-ktwvfmmp3-imc?session-id=e583e9231f001cf02d8a31d506418c12&source=tritonredirect');
+
+        }
+
+        function setup() {
+            createCanvas(710, 200);
+            //song.loop(); // song is ready to play during setup() because it was loaded during preload
+            background(0, 255, 0);
+            userStartAudio();
+            //getAudioContext().resume();
+        }
+
+        function mousePressed() {
+            if (song.isPlaying()) {
+                // .isPlaying() returns a boolean
+                song.pause(); // .play() will resume from .pause() position
+                background(255, 0, 0);
+            } else {
+                song.play();
+                background(0, 255, 0);
+            }
+        }
+         /* //let amplitude; // variable to hold the amplitude values
         //var freqValue;
         let fft;
         let mic;
-        /*
-        function preload() {
-          song = loadSound('https://beststorageever2020.blob.core.windows.net/video4/Tones.mp3'); // load the sound file
-        }
-        */
+        
+        //function preload() {
+          //song = loadSound('https://beststorageever2020.blob.core.windows.net/video4/Tones.mp3'); // load the sound file
+        //}
+       
         function setup() {
             createCanvas(400, 400); // create a canvas
             userStartAudio();
@@ -75,7 +101,7 @@
                 console.log("Beat detected!");
             }
         }
-        /*
+      
         const avgWindow = 20;
         const threshold = 0.28;
         let fft;
